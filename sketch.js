@@ -48,7 +48,7 @@ function setup(){
 var t = true ;
 function draw() {
     timer += 1 ; 
-    if (timer == 10){music.play();}
+    if (timer == 10){music.play(true);}
 
     //drawing background image
     background(bg);
