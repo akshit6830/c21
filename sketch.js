@@ -101,4 +101,5 @@ function keyPressed(){
     if(keyCode == 32){
         start = true ;
         music.play();
+    }
 }
