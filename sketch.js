@@ -1,7 +1,7 @@
 var canvas;
 var music;
 var bg  , bubbleColor;
-var timer ; 
+var start ; 
 // loading assets
 function preload(){
     music = loadSound("music.mp3");
@@ -47,21 +47,21 @@ function setup(){
 }
 var t = true ;
 function draw() {
-    timer += 1 ; 
-    if (timer == 100){
-        music.play();
-      }
+    if (start){
+        //drawing background image
+        background(bg);
 
-    //drawing background image
-    background(bg);
+        // detecting collisions
+        isTouching(ball , b1);
+        isTouching(ball , b2);
+        isTouching(ball , b3);
+        isTouching(ball , b4);
 
-    // detecting collisions
-    isTouching(ball , b1);
-    isTouching(ball , b2);
-    isTouching(ball , b3);
-    isTouching(ball , b4);
-
-    drawSprites();
+        drawSprites();
+    }
+    else { 
+        text('Press Space' , width/2 , height/2);
+    }
 }
 function isTouching(obj1 , obj2){
     // collision detection
@@ -96,4 +96,9 @@ function stop(obj){
     // detroying the bubble
     ball.destroy();
     
+}
+function keyPressed(){
+    if(keyCode == 32){
+        start = true ;
+        music.play();
 }
