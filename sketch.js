@@ -1,7 +1,7 @@
 var canvas;
 var music;
 var bg  , bubbleColor;
-
+var timer ; 
 // loading assets
 function preload(){
     music = loadSound("music.mp3");
@@ -47,7 +47,8 @@ function setup(){
 }
 var t = true ;
 function draw() {
-    if (t == true){music.play(true); t=false;}
+    timer += 1 ; 
+    if (timer == 10){music.play();}
 
     //drawing background image
     background(bg);
